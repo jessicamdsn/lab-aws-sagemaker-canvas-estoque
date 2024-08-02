@@ -6,6 +6,8 @@
 
 ## 📌 Resultados
 
+![Resultado](resultado.jpeg)
+
 ### Avaliação de Métricas do Modelo
 
 1. **Avg. wQL (Weighted Quantile Loss)**
