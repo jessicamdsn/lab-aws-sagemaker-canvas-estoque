@@ -1,47 +1,46 @@
 # 📊 Previsão de Estoque Inteligente na AWS com [SageMaker Canvas](https://aws.amazon.com/pt/sagemaker/canvas/)
 
-Bem-vindo ao desafio de projeto "Previsão de Estoque Inteligente na AWS com SageMaker Canvas. Neste Lab DIO, você aprenderá a usar o SageMaker Canvas para criar previsões de estoque baseadas em Machine Learning (ML). Siga os passos abaixo para completar o desafio!
-
-## 📋 Pré-requisitos
-
-Antes de começar, certifique-se de ter uma conta na AWS. Se precisar de ajuda para criar sua conta, confira nosso repositório [AWS Cloud Quickstart](https://github.com/digitalinnovationone/aws-cloud-quickstart).
-
-
 ## 🎯 Objetivos Deste Desafio de Projeto (Lab)
 
 ![image](https://github.com/digitalinnovationone/lab-aws-sagemaker-canvas-estoque/assets/730492/72f5c21f-5562-491e-aa42-2885a3184650)
 
-- Dê um fork neste projeto e reescreva este `README.md`. Sinta-se à vontade para detalhar todo o processo de criação do seu Modelo de ML para uma "Previsão de Estoque Inteligente".
-- Para isso, siga o [passo a passo] descrito a seguir e evolua as suas habilidades em ML no-code com o Amazon SageMaker Canvas.
-- Ao concluir, envie a URL do seu repositório com a solução na plataforma da DIO.
+## 📌 Resultados
+
+### Avaliação de Métricas do Modelo
+
+1. **Avg. wQL (Weighted Quantile Loss)**
+   - **Valor:** 1.000
+   - **Descrição:** A Weighted Quantile Loss (wQL) mede a performance do modelo em prever quantis específicos da distribuição dos dados, ponderando os erros em diferentes quantis. É útil para modelos que precisam prever intervalos de confiança.
+   - **Interpretação:** Um valor de 1.000 indica que o modelo não está performando bem na previsão dos quantis desejados. Um valor ideal é próximo de zero, onde um valor alto indica maior erro na previsão dos quantis.
+
+2. **MAPE (Mean Absolute Percentage Error)**
+   - **Valor:** 1.000
+   - **Descrição:** MAPE mede a precisão do modelo expressando o erro absoluto como uma porcentagem das observações reais. É uma métrica útil para entender o erro relativo.
+   - **Interpretação:** Um MAPE de 1.000 sugere que, em média, as previsões do modelo estão erradas por 100% em relação aos valores reais. Este é um valor muito alto, indicando que o modelo não está fornecendo previsões precisas.
+
+3. **WAPE (Weighted Absolute Percentage Error)**
+   - **Valor:** 1.000
+   - **Descrição:** WAPE é similar ao MAPE, mas pondera os erros com base na importância de cada observação, fornecendo uma visão mais ajustada da precisão do modelo.
+   - **Interpretação:** Um WAPE de 1.000 também indica um erro absoluto médio ponderado de 100%, reforçando que o modelo tem baixa precisão nas previsões.
+
+4. **RMSE (Root Mean Squared Error)**
+   - **Valor:** 21.733
+   - **Descrição:** RMSE é a raiz quadrada da média dos quadrados dos erros. É uma métrica comum para avaliar a magnitude média dos erros de previsão.
+   - **Interpretação:** O RMSE de 21.733 sugere que, em média, as previsões do modelo estão erradas por cerca de 21.733 unidades. É importante considerar a escala dos dados para interpretar se este valor é aceitável.
+
+5. **MASE (Mean Absolute Scaled Error)**
+   - **Valor:** 4.420
+   - **Descrição:** MASE mede o erro absoluto médio escalado pelo erro absoluto médio de um modelo de referência, como o modelo de previsão ingênuo. Um MASE menor que 1 indica que o modelo é melhor que o modelo de referência.
+   - **Interpretação:** Um MASE de 4.420 indica que o erro absoluto médio do modelo é 4.420 vezes maior que o erro absoluto médio do modelo de referência. Este valor sugere que o modelo de previsão não está performando bem em comparação com um modelo simples.
+
+### Avaliação Geral
+Com base nas métricas fornecidas:
+
+- **Avg. wQL, MAPE, e WAPE:** Os valores de 1.000 indicam que o modelo está errando em 100% das previsões, o que é um desempenho muito ruim. Isso sugere que o modelo pode não estar capturando bem os padrões nos dados ou que há problemas com a qualidade dos dados usados para o treinamento.
+- **RMSE:** Um RMSE de 21.733 indica erros significativos nas previsões. Dependendo da escala dos dados, este valor pode ser considerado alto, sugerindo a necessidade de ajustes no modelo.
+- **MASE:** Um MASE de 4.420 revela que o modelo está performando muito pior que um modelo de referência simples. Isso sugere que melhorias substanciais são necessárias.
+
+### Conclusões
+Os resultados indicam que o modelo atual apresenta um desempenho fraco nas previsões de estoque.
 
 
-## 🚀 Passo a Passo
-
-### 1. Selecionar Dataset
-
--   Navegue até a pasta `datasets` deste repositório. Esta pasta contém os datasets que você poderá escolher para treinar e testar seu modelo de ML. Sinta-se à vontade para gerar/enriquecer seus próprios datasets, quanto mais você se engajar, mais relevante esse projeto será em seu portfólio.
--   Escolha o dataset que você usará para treinar seu modelo de previsão de estoque.
--   Faça o upload do dataset no SageMaker Canvas.
-
-### 2. Construir/Treinar
-
--   No SageMaker Canvas, importe o dataset que você selecionou.
--   Configure as variáveis de entrada e saída de acordo com os dados.
--   Inicie o treinamento do modelo. Isso pode levar algum tempo, dependendo do tamanho do dataset.
-
-### 3. Analisar
-
--   Após o treinamento, examine as métricas de performance do modelo.
--   Verifique as principais características que influenciam as previsões.
--   Faça ajustes no modelo se necessário e re-treine até obter um desempenho satisfatório.
-
-### 4. Prever
-
--   Use o modelo treinado para fazer previsões de estoque.
--   Exporte os resultados e analise as previsões geradas.
--   Documente suas conclusões e qualquer insight obtido a partir das previsões.
-
-## 🤔 Dúvidas?
-
-Esperamos que esta experiência tenha sido enriquecedora e que você tenha aprendido mais sobre Machine Learning aplicado a problemas reais. Se tiver alguma dúvida, não hesite em abrir uma issue neste repositório ou entrar em contato com a equipe da DIO.
